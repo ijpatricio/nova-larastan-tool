@@ -18,7 +18,7 @@ class LarastanCheckController extends Controller
     {
         if (class_exists(CodeAnalyseCommand::class)) {
             return response()->json([
-                'success' => false,
+                'success' => true,
             ]);
         }
 
