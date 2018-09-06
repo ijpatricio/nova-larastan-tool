@@ -1,0 +1,32 @@
+{
+    "name": "ijpatricio/nova-larastan-tool",
+    "description": "A Laravel Nova tool.",
+    "keywords": [
+        "laravel",
+        "nova"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1.0"
+    },
+    "require-dev": {
+        "nunomaduro/larastan": "^0.2.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ijpatricio\\NovaLarastanTool\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ijpatricio\\NovaLarastanTool\\ToolServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
