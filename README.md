@@ -1,6 +1,6 @@
 # Nova Larastan Tool
 
-Run Larastan right from Nova
+Run Larastan right from your Laravel Nova application
 
 ![nova_larastan screenshot](docs/NovaLarastanTool.png)
 
