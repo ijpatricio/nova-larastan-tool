@@ -30,20 +30,20 @@ public function tools()
 As Larastan is mainly for a dev environment, to keep the dependencies `dev` only, you can setup previous `tools()` method as following:
 ```php
 public function tools()
-    {
-        $tools = [
-            //... your regular tools
-        ];
+{
+    $tools = [
+        //... your regular tools
+    ];
 
-        if (app()->environment() === 'local') {
-            $tools = array_merge($tools, [
-                //... your require-dev tools
-                new \Ijpatricio\NovaLarastanTool\NovaLarastanTool()
-            ]);
-        }
-
-        return $tools;
+    if (app()->environment() === 'local') {
+        $tools = array_merge($tools, [
+            //... your require-dev tools
+            new \Ijpatricio\NovaLarastanTool\NovaLarastanTool()
+        ]);
     }
+
+    return $tools;
+}
 ```
 
 
