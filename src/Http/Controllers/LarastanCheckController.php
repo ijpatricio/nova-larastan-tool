@@ -4,7 +4,6 @@ namespace Ijpatricio\NovaLarastanTool\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 use NunoMaduro\Larastan\Console\CodeAnalyseCommand;
-use Ijpatricio\NovaLarastanTool\Services\CodeAnalyseService;
 use Ijpatricio\NovaLarastanTool\Http\Responses\AnalysisReportResponse;
 
 class LarastanCheckController extends Controller

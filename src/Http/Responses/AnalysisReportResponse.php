@@ -3,7 +3,6 @@
 namespace Ijpatricio\NovaLarastanTool\Http\Responses;
 
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Response;
 use Illuminate\Contracts\Support\Responsable;
 
 class AnalysisReportResponse implements Responsable
