@@ -25,6 +25,11 @@
         <div v-if="reportRanTimes > 0">
             <classic-report-component :report="report"></classic-report-component>
         </div>
+
+        <div v-if="catchResponse !== null">
+            <backend-error :catch-response="catchResponse"></backend-error>
+        </div>
+
     </div>
 </template>
 
@@ -33,10 +38,12 @@ import axios from 'axios'
 import ClassicReportComponent from './ClassicReportComponent'
 import 'vue-awesome/icons/spinner'
 import Icon from 'vue-awesome/components/Icon'
+import BackendError from "./BackendError"
 
 export default {
 
     components: {
+        BackendError,
         ClassicReportComponent,
         'v-icon': Icon,
     },
@@ -50,6 +57,7 @@ export default {
             files: [],
             totals: {}
         },
+        catchResponse: null,
     }),
 
     computed: {
@@ -86,6 +94,12 @@ export default {
                     this.$toasted.show('The results are in!', { type: 'success' })
                     this.reportRanTimes++
                     this.loading = false
+                    this.catchResponse = null
+                })
+                .catch(error => {
+                    this.catchResponse = error.response.data
+                    this.loading = false
+                    this.$toasted.show('Backend error.', { type: 'error' })
                 })
         },
     },
