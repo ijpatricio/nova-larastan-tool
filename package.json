@@ -16,6 +16,7 @@
     "dependencies": {
         "codemirror": "^5.40.0",
         "vue": "^2.5.0",
+        "vue-awesome": "^3.1.2",
         "vue-codemirror": "^4.0.5"
     }
 }

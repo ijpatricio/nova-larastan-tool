@@ -17,7 +17,10 @@
             </div>
         </div>
 
-        <button v-else @click="codeAnalyse" class="mb-3 btn btn-default btn-primary">{{ buttonMessage }}</button>
+        <button v-else @click="codeAnalyse" class="mb-3 btn btn-default btn-primary">
+            <v-icon name="spinner" pulse v-show="loading"></v-icon>
+            {{ buttonMessage }}
+        </button>
 
         <div v-if="reportRanTimes > 0">
             <classic-report-component :report="report"></classic-report-component>
@@ -28,14 +31,18 @@
 <script>
 import axios from 'axios'
 import ClassicReportComponent from './ClassicReportComponent'
+import 'vue-awesome/icons/spinner'
+import Icon from 'vue-awesome/components/Icon'
 
 export default {
 
     components: {
         ClassicReportComponent,
+        'v-icon': Icon,
     },
 
     data: () => ({
+        loading: false,
         larastanFound: false,
         reportRanTimes: 0,
         report: {
@@ -71,12 +78,14 @@ export default {
                 })
         },
         codeAnalyse() {
+            this.loading = true
             axios.get('/ijpatricio/nova-larastan-tool/analysis-report')
                 .then(response => {
                     Object.assign(this.report, response.data.data)
                     this.$forceUpdate()
                     this.$toasted.show('The results are in!', { type: 'success' })
                     this.reportRanTimes++
+                    this.loading = false
                 })
         },
     },
