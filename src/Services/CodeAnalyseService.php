@@ -68,7 +68,7 @@ class CodeAnalyseService
         $this->errors = json_decode($this->artisan->output());
 
         if (json_last_error()) {
-            throw new \Exception('Error decoding output from code:analyse command');
+            throw new \Exception("Error decoding output from code:analyse command: {$this->artisan->output()}");
         }
     }
 
